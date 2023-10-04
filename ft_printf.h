@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:09:06 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/03 14:11:01 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/04 17:39:19 by lganda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,13 @@
 # include <unistd.h>
 
 int	ft_printf(const char *str, ...);
+int	ft_format(char	*format, va_list arg);
+int	ft_puchar(int c);
+int	ft_putstr(char *s);
+int	ft_putptr(unsigned long long n);
+int	ft_puthex_ptr(unsigned long long n);
+int	ft_putnbr(int n);
+int	ft_putnbr_uns(unsigned int n);
+int	ft_puthex(unsigned int n, char c);
 
 #endif

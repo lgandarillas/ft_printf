@@ -6,56 +6,54 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/03 14:12:38 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/04 17:30:21 by lganda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_ap(va_list ap, const char format)
+int	ft_format(char *format, va_list ap)
 {
-	if (format == 'c')
-		return (ft_putchar(va_arg(ap, int)));
-	if (forat == 's')
-		return (ft_putstr(va_arg(ap, char *)));
-	if (format == 'p')
-		return (ft_putptr(va_arg(ap, unsigned long long), 0, 0, 0));
-	if (format == 'd' || format == 'i')
-		return (ft_putnbr(va_arg(ap, int), 0, 0, 0));
-	if (format == 'u')
-		return (ft_putnsbr(va_arg(ap, unsigned int)));
-	if (format == 'x')
-		return (ft_puthex(va_arg(ap, int), 0, 0, 97));
-	if (format == 'X')
-		return (ft_puthex(va_arg(ap, int), 0, 0, 65));
-	if (format == '%')
-		return (ft_putchar('%'));
-	return (-1);
+	int	i;
+
+	i = 0;
+	if (*format == 'c')
+		i += ft_putchar(va_arg(arg, int));
+	else if (*format == 's')
+		i += ft_putstr(va_arg(arg, char *));
+	else if (*format == 'p')
+		i += ft_putptr(va_arg(arg, unsigned long long int);
+	else if (*format == 'd' || format == 'i')
+		i += ft_putnbr(va_arg(arg, int));
+	else if (*format == 'u')
+		i += ft_putnbr_uns(va_arg(arg, unsigned int)));
+	else if (*format == 'x' || *format == 'X')
+		i += ft_puthex(va_arg(arg, unsigned int), *format);
+	else if (*format == '%')
+		i += ft_putchar('%');
+	else
+		return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	int	i;
-	int	len;
-	int	aux;
 
 	if (!str)
 		return (-1);
 	i = 0;
-	len = 0;
-	aux = 0;
-	va_start(ap, str);
-	while (str[i] != '\0')
+	va_start(arg, str);
+	while (*str != '\0')
 	{
-		if (str[i] == '%')
-			aux = ft_printf_ap(ap, str[++i]);
+		if (*str == '%')
+		{
+			str++;
+			i += ft_format((char *)str, arg);
+		}
 		else
-			aux = ft_putchar(str[i]);
-		if (aux == -1)
-			return (-1);
-		len += aux;
-		i++;
+			i += ft_putchar(*str);
+		str++;
 	}
-	va_end(ap);
-	return (len);
+	va_end(arg);
+	return (i);
 }
