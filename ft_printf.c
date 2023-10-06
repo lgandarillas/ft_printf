@@ -6,39 +6,40 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/04 18:33:22 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/07 00:50:57 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format(char *format, va_list ap)
+int	ft_format(char *format, va_list arg)
 {
 	int		i;
-	va_list	arg;
 
 	i = 0;
 	if (*format == 'c')
 		i += ft_putchar(va_arg(arg, int));
 	else if (*format == 's')
 		i += ft_putstr(va_arg(arg, char *));
-	else if (*format == 'p')
-		i += ft_putptr(va_arg(arg, unsigned long long int);
-	else if (*format == 'd' || format == 'i')
+	/*else if (*format == 'p')
+		i += ft_putptr(va_arg(arg, unsigned long long int));*/
+	else if (*format == 'd' || *format == 'i')
 		i += ft_putnbr(va_arg(arg, int));
 	else if (*format == 'u')
-		i += ft_putnbr_uns(va_arg(arg, unsigned int)));
-	else if (*format == 'x' || *format == 'X')
-		i += ft_puthex(va_arg(arg, unsigned int), *format);
+		i += ft_putnbr_uns(va_arg(arg, unsigned int));
+	/*else if (*format == 'x' || *format == 'X')
+		i += ft_puthex(va_arg(arg, unsigned int), *format);*/
 	else if (*format == '%')
 		i += ft_putchar('%');
 	else
 		return (0);
+	return (i);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
+	int		i;
+	va_list	arg;
 
 	if (!str)
 		return (-1);
@@ -57,4 +58,12 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(arg);
 	return (i);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	int	a = ft_printf("%d", 2147483647);
+	printf("\n%d", a);
+	return (0);
 }

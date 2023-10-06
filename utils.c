@@ -6,13 +6,16 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:30:06 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/06 18:48:27 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/07 00:48:05 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
 int	ft_putstr(char	*s)
@@ -26,26 +29,40 @@ int	ft_putstr(char	*s)
 		s++;
 		n++;
 	}
+	return (n);
 }
 
-int	ft_putnbr(int	n)
+int	ft_putnbr(int n)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		n = 147483648;
-	}
+	int		len;
+	int		aux;
+	unsigned int	nbr;
+
+	len = 0;
+	aux = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		len += write(1, "-", 1);
+		nbr = n * -1;
 	}
 	else
-		ft_putchar(n + '0');
+		nbr = n;
+	if (n > 9)
+		len += ft_putnbr(nbr / 10);
+	aux = (nbr % 10);
+	len += ft_putchar(aux + '0');
+	return (len);
+}
+
+int	ft_putnbr_uns(unsigned int n)
+{
+	int		len;
+	int		aux;
+
+	len = 0;
+	if (n >= 10)
+		len += ft_putnbr_uns(n / 10);
+	aux = (n % 10);
+	len += ft_putchar(aux + '0');
+	return (len);
 }
