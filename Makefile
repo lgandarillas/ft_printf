@@ -6,7 +6,7 @@
 #    By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:33:27 by lganda            #+#    #+#              #
-#    Updated: 2023/10/04 17:38:27 by lganda           ###   ########.fr        #
+#    Updated: 2023/10/06 18:54:46 by lganda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC	=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-SRC	=	//meter todos los archivos
+SRC	=	ft_printf.c utils.c
 
 OBJ	=	$(SRC:%.c=%.o)
 
@@ -26,16 +26,16 @@ AR	=	ar -cr
 
 all:	$(NAME)
 
-$(NAME):	$(OBJ)
-		$(NAME) $(OBJ) $(AR)
+$(NAME): $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re:	fclean all
 
-.SILENT: all $(NAME) $(OBJ) clean fclean
+.SILENT: all $(NAME) $(OBJ) clean fclean re
 .PHONY: all clean fclean re
