@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/07 00:50:57 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/07 10:36:32 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int	ft_format(char *format, va_list arg)
 		i += ft_putchar(va_arg(arg, int));
 	else if (*format == 's')
 		i += ft_putstr(va_arg(arg, char *));
-	/*else if (*format == 'p')
-		i += ft_putptr(va_arg(arg, unsigned long long int));*/
+	else if (*format == 'p')
+		i += ft_putptr(va_arg(arg, unsigned long long int));
 	else if (*format == 'd' || *format == 'i')
 		i += ft_putnbr(va_arg(arg, int));
 	else if (*format == 'u')
 		i += ft_putnbr_uns(va_arg(arg, unsigned int));
-	/*else if (*format == 'x' || *format == 'X')
-		i += ft_puthex(va_arg(arg, unsigned int), *format);*/
+	else if (*format == 'x' || *format == 'X')
+		i += ft_puthex(va_arg(arg, unsigned int), *format);
 	else if (*format == '%')
 		i += ft_putchar('%');
 	else
@@ -58,12 +58,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(arg);
 	return (i);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	int	a = ft_printf("%d", 2147483647);
-	printf("\n%d", a);
-	return (0);
 }

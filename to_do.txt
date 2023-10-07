@@ -10,4 +10,3 @@ OK - %u : Imprime un número decimal (base 10) sin signo
 OK - %% : Impime el simbolo de %
 
 ## ARREGLAR
-- Paco no detecta

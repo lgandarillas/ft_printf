@@ -6,11 +6,11 @@
 #    By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:33:27 by lganda            #+#    #+#              #
-#    Updated: 2023/10/07 00:59:38 by lgandari         ###   ########.fr        #
+#    Updated: 2023/10/07 09:49:05 by lgandari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libftprint.a
+NAME	=	libftprintf.a
 
 CC	=	gcc
 
