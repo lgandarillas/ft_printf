@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/07 13:21:45 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/07 15:24:47 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_format(char *format, va_list arg)
 		i += ft_putchar(va_arg(arg, int));
 	else if (*format == 's')
 		i += ft_putstr(va_arg(arg, char *));
-	/*else if (*format == 'p')
-		i += ft_putptr(va_arg(arg, unsigned long long int));*/
+	else if (*format == 'p')
+		i += ft_putptr(va_arg(arg, unsigned long long));
 	else if (*format == 'd' || *format == 'i')
 		i += ft_putnbr(va_arg(arg, int));
 	else if (*format == 'u')

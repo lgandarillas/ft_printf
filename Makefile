@@ -6,7 +6,7 @@
 #    By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:33:27 by lganda            #+#    #+#              #
-#    Updated: 2023/10/07 11:34:28 by lgandari         ###   ########.fr        #
+#    Updated: 2023/10/07 15:27:13 by lgandari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC	=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-SRC	=	ft_printf.c utils.c
+SRC	=	ft_printf.c utils.c utils2.c
 
 OBJ	=	$(SRC:%.c=%.o)
 

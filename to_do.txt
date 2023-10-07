@@ -1,7 +1,7 @@
 ## SUBJECT
 OK - %c : Imprime un solo caracter
 OK - %s : Imprime una str
-- %p : El puntero void* dado como argumento se imprime en hex
+OKOK  - %p : El puntero void* dado como argumento se imprime en hex
 OK - %d : Imprime un número decimal (base 10)
 OK - %i : Imprime un número entero (base 10)
 OK - %u : Imprime un número decimal (base 10) sin signo

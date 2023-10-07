@@ -6,13 +6,13 @@
 /*   By: lgandari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:36:25 by lgandari          #+#    #+#             */
-/*   Updated: 2023/10/07 13:22:04 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/07 15:27:47 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+# include "ft_printf.h"
 
-int	ft_putptr_hex(unsigned long long int n)
+int	ft_putptr_hex(unsigned long long n)
 {
 	int	len;
 
@@ -20,35 +20,33 @@ int	ft_putptr_hex(unsigned long long int n)
 	if (n >= 16)
 	{
 		len += ft_putptr_hex(n / 16);
-		len += ft_putptr_hex(n % 16);
+		n = n % 16;
 	}
+	if (n < 10)
+		len += ft_putchar('0' + n);
 	else
-	{
-		if (n < 10)
-			len += ft_putchar('0' + n);
-		else
-			len += ft_putchar('a' + (n - 10));
-	}
+		len += ft_putchar('a' + (n - 10));
 	return (len);
 }
 
-int	ft_putptr(unsigned long long int n)
+int	ft_putptr(unsigned long long n)
 {
 	int	len;
 
 	len = 0;
 	len += write(1, "0x", 2);
-	len += ft_putptr_hex(n);
+	len += ft_putptr_hex((unsigned long long)n);
 	return (len);
 }
 /*
 int	main(void)
 {
-	int	a;
-	int	*b;
+	unsigned long long ptr1 = 0x12345;
+	unsigned long long ptr2 = 0xDEADBEE;
 
-	a = 5;
-	b = &a;
-	ft_putptr(b);
+	int	len1 = ft_putptr(ptr1);
+	int	len2 = ft_putptr(ptr2);
+	ft_printf("\n%p", len1);
+	ft_printf("\n%p", len2);
 	return (0);
 }*/
