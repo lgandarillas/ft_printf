@@ -6,7 +6,7 @@
 /*   By: lgandari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 11:36:25 by lgandari          #+#    #+#             */
-/*   Updated: 2023/10/07 11:37:04 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/07 13:22:04 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ int	ft_putptr_hex(unsigned long long int n)
 	len = 0;
 	if (n >= 16)
 	{
-		len += ft_putptr(n / 16);
-		len += ft_putptr(n % 16);
+		len += ft_putptr_hex(n / 16);
+		len += ft_putptr_hex(n % 16);
 	}
 	else
-		len += write(1, n + '0', 1);
+	{
+		if (n < 10)
+			len += ft_putchar('0' + n);
+		else
+			len += ft_putchar('a' + (n - 10));
+	}
 	return (len);
 }
 
@@ -36,3 +41,14 @@ int	ft_putptr(unsigned long long int n)
 	len += ft_putptr_hex(n);
 	return (len);
 }
+/*
+int	main(void)
+{
+	int	a;
+	int	*b;
+
+	a = 5;
+	b = &a;
+	ft_putptr(b);
+	return (0);
+}*/
