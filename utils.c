@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:30:06 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/07 11:36:02 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:59:02 by lganda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ int	ft_putchar(int c)
 
 int	ft_putstr(char *s)
 {
-	int	n;
+	int	len;
 
 	if (!s)
 	{
-		n = write(1, "(null)", 6);
-		return (n);
+		len = write(1, "(null)", 6);
+		return (len);
 	}
-	n = 0;
+	len = 0;
 	while (*s != '\0')
 	{
 		write(1, s, 1);
 		s++;
 		n++;
 	}
-	return (n);
+	return (len);
 }
 
 int	ft_putnbr(int n)

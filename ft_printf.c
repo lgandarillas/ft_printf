@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/07 15:24:47 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:23:37 by lganda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	ft_format(char *format, va_list arg)
 		i += ft_putnbr(va_arg(arg, int));
 	else if (*format == 'u')
 		i += ft_putnbr_uns(va_arg(arg, unsigned int));
-	/*else if (*format == 'x' || *format == 'X')
-		i += ft_puthex(va_arg(arg, unsigned int), *format);*/
+	else if (*format == 'x' || *format == 'X')
+		i += ft_putnbr_hex(va_arg(arg, unsigned int), *format);
 	else if (*format == '%')
 		i += ft_putchar('%');
 	else
