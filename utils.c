@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:30:06 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/11 12:55:41 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:25:16 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	ft_putchar(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	if (write(1, &c, 1) == 1)
+		return (1);
+	else
+		return (-1);
 }
 
 int	ft_putstr(char *s)
@@ -30,9 +32,13 @@ int	ft_putstr(char *s)
 	len = 0;
 	while (*s != '\0')
 	{
-		write(1, s, 1);
-		s++;
-		len++;
+		if (write(1, s, 1) == 1)
+		{
+			s++;
+			len++;
+		}
+		else
+			return (-1);
 	}
 	return (len);
 }

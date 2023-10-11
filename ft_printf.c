@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/10 12:23:37 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/11 13:28:50 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ int	ft_printf(const char *str, ...)
 			i += ft_format((char *)str, arg);
 		}
 		else
-			i += ft_putchar(*str);
+		{
+			if (ft_putchar(*str) == -1)
+				return (-1);
+			else
+				i++;
+		}
 		str++;
 	}
 	va_end(arg);
