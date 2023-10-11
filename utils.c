@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:30:06 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/10 19:01:44 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/11 12:55:41 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,29 @@ int	ft_putstr(char *s)
 	return (len);
 }
 
-int     ft_putptr(unsigned long long n)
+int	ft_putptr(unsigned long long n)
 {
-        int     len;
+	int	len;
 
-        len = 0;
-        len += write(1, "0x", 2);
-        len += ft_putptr_hex((unsigned long long)n);
-        return (len);
+	len = 0;
+	len += write(1, "0x", 2);
+	len += ft_putptr_hex((unsigned long long)n);
+	return (len);
 }
 
-int     ft_putptr_hex(unsigned long long n)
+int	ft_putptr_hex(unsigned long long n)
 {
-        int     len;
+	int	len;
 
-        len = 0;
-        if (n >= 16)
-        {
-                len += ft_putptr_hex(n / 16);
-                n = n % 16;
-        }
-        if (n < 10)
-                len += ft_putchar('0' + n);
-        else
-                len += ft_putchar('a' + (n - 10));
-        return (len);
+	len = 0;
+	if (n >= 16)
+	{
+		len += ft_putptr_hex(n / 16);
+		n = n % 16;
+	}
+	if (n < 10)
+		len += ft_putchar('0' + n);
+	else
+		len += ft_putchar('a' + (n - 10));
+	return (len);
 }
