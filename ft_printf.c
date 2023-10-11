@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:58:56 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/11 15:19:07 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:26:07 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 int	ft_format(char *format, va_list arg)
 {
-	int		i;
-
-	i = 0;
 	if (*format == 'c')
-		i += ft_putchar(va_arg(arg, int));
-	else if (*format == 's')
-		i += ft_putstr(va_arg(arg, char *));
-	else if (*format == 'p')
-		i += ft_putptr(va_arg(arg, unsigned long long));
-	else if (*format == 'd' || *format == 'i')
-		i += ft_putnbr(va_arg(arg, int));
-	else if (*format == 'u')
-		i += ft_putnbr_uns(va_arg(arg, unsigned int));
-	else if (*format == 'x' || *format == 'X')
-		i += ft_putnbr_hex(va_arg(arg, unsigned int), *format);
-	else if (*format == '%')
-		i += ft_putchar('%');
-	else
-		return (0);
-	return (i);
+		return (ft_putchar(va_arg(arg, int)));
+	if (*format == 's')
+		return (ft_putstr(va_arg(arg, char *)));
+	if (*format == 'p')
+		return (ft_putptr(va_arg(arg, unsigned long long)));
+	if (*format == 'd' || *format == 'i')
+		return (ft_putnbr(va_arg(arg, int)));
+	if (*format == 'u')
+		return (ft_putnbr_uns(va_arg(arg, unsigned int)));
+	if (*format == 'x' || *format == 'X')
+		return (ft_putnbr_hex(va_arg(arg, unsigned int), *format));
+	if (*format == '%')
+		return (ft_putchar('%'));
+	return (-1);
 }
 
 int	ft_printf(const char *str, ...)
@@ -60,8 +55,7 @@ int	ft_printf(const char *str, ...)
 		{
 			if (ft_putchar(*str) == -1)
 				return (-1);
-			else
-				len++;
+			len++;
 		}
 		str++;
 	}
