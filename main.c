@@ -6,14 +6,14 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:01:00 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/11 13:21:00 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:11:09 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 # include "ft_printf.h"
 # include <stdio.h>
 
-/*
 int	main(void)
 {
 	printf("\033[32m##	TEST ft_printf\033[0m\n\n");
