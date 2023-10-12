@@ -6,7 +6,7 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:01:00 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/11 15:11:09 by lgandari         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:31:05 by lganda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(void)
 
 	printf("\033[32mImprimir un puntero\033[m\n");
 	ft_printf("Cpy: %p\n", 0xFFF);
-	//
 	
 	printf("\033[32mImprimir un numero decimal\033[m\n");
 	printf("Re: %d\n", 42);
@@ -50,5 +49,8 @@ int	main(void)
 	printf("Re: %%\n");
 	ft_printf("Cpy: %%\n");
 
+	printf("\033[32mVuelvete loco:\033[m\n");
+	ft_printf("Hola %s, tienes %d años?\n", "Manolo", 25);
+	ft_printf("Puntero %p en char %c es %% como %% cuando %x", 0xF35, 'M', 7698726);
 	return (0);
 }*/
