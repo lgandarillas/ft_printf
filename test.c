@@ -6,17 +6,16 @@
 /*   By: lganda <lgandari@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:01:00 by lganda            #+#    #+#             */
-/*   Updated: 2023/10/12 19:31:05 by lganda           ###   ########.fr       */
+/*   Updated: 2023/10/15 17:32:54 by lgandari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 # include "ft_printf.h"
 # include <stdio.h>
 
 int	main(void)
 {
-	printf("\033[32m##	TEST ft_printf\033[0m\n\n");
+	printf("\033[32m###TEST ft_printf\033[0m\n");
 
 	printf("\033[32mImprimir un string\033[m\n");
 	printf("Re: %s", "Hello world!\n");
@@ -53,4 +52,4 @@ int	main(void)
 	ft_printf("Hola %s, tienes %d años?\n", "Manolo", 25);
 	ft_printf("Puntero %p en char %c es %% como %% cuando %x", 0xF35, 'M', 7698726);
 	return (0);
-}*/
+}
