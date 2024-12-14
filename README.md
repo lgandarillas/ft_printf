@@ -1,4 +1,4 @@
-# ft_printf
+# [ft_printf | 42 School - Rank 02]
 **ft_printf** is a 42 School project that aims to recreate the functionality of the standard C library's **printf()** function.
 ## Features
 -  Support for basic conversion specifiers: **%c**, **%s**, **%p**, **%d**, **%i**, **%u**, **%x**, **%X**, and **%%**.
